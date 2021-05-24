@@ -4,6 +4,8 @@
   "private": true,
   "description": "Учебный проект «Угадай мелодию»",
   "scripts": {
+    "start": "webpack serve --mode development",
+    "build": "webpack --mode production",
     "eslint": "eslint --ext .jsx --ext .js src/",
     "test": "npm run eslint"
   },

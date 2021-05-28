@@ -7,6 +7,11 @@ const {GAME_TIME, MAX_MISTAKES} = gameSettings;
 
 // Component WelcomeScreen
 export const WelcomeScreen = () => {
+
+  const handleButtonClick = (evt) => {
+    evt.preventDefault();
+  };
+
   return (
     <section className="welcome">
       <div className="welcome__logo">
@@ -17,7 +22,7 @@ export const WelcomeScreen = () => {
           height="83"
         />
       </div>
-      <button className="welcome__button">
+      <button onClick={handleButtonClick} className="welcome__button">
         <span className="visually-hidden">Начать игру</span>
       </button>
       <h2 className="welcome__rules-title">Правила игры</h2>

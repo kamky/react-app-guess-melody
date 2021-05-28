@@ -1,6 +1,10 @@
 // React
 import React from "react";
 
+// Game settings
+import {gameSettings} from "../../consts";
+const {GAME_TIME, MAX_MISTAKES} = gameSettings;
+
 // Component WelcomeScreen
 export const WelcomeScreen = () => {
   return (
@@ -19,8 +23,8 @@ export const WelcomeScreen = () => {
       <h2 className="welcome__rules-title">Правила игры</h2>
       <p className="welcome__text">Правила просты:</p>
       <ul className="welcome__rules-list">
-        <li>За 5 минут нужно ответить на все вопросы.</li>
-        <li>Можно допустить 3 ошибки.</li>
+        <li>За {GAME_TIME} минут нужно ответить на все вопросы.</li>
+        <li>Можно допустить {MAX_MISTAKES} ошибки.</li>
       </ul>
       <p className="welcome__text">Удачи!</p>
     </section>

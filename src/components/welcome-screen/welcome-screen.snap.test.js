@@ -6,7 +6,8 @@ import renderer from "react-test-renderer";
 import {WelcomeScreen} from "./welcome-screen";
 
 describe(`Snapshot test for component <WelcomeScreen />`, () => {
-  const wrapper = renderer.create(<WelcomeScreen />);
+  const defaultProps = {onStartGameButtonClick: jest.fn()};
+  const wrapper = renderer.create(<WelcomeScreen {...defaultProps} />);
   test(`should component <WelcomeScreen /> renders correctly`, () => {
     expect(wrapper).toMatchSnapshot();
   });

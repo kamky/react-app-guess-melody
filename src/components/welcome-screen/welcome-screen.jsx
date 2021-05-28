@@ -1,15 +1,18 @@
 // React
 import React from "react";
+import PropTypes from "prop-types";
 
 // Game settings
 import {gameSettings} from "../../consts";
 const {GAME_TIME, MAX_MISTAKES} = gameSettings;
 
 // Component WelcomeScreen
-export const WelcomeScreen = () => {
+export const WelcomeScreen = (props) => {
+  const {onStartGameButtonClick} = props;
 
   const handleButtonClick = (evt) => {
     evt.preventDefault();
+    onStartGameButtonClick();
   };
 
   return (
@@ -34,4 +37,8 @@ export const WelcomeScreen = () => {
       <p className="welcome__text">Удачи!</p>
     </section>
   );
+};
+
+WelcomeScreen.propTypes = {
+  onStartGameButtonClick: PropTypes.func.isRequired,
 };

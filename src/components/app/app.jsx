@@ -6,5 +6,5 @@ import {WelcomeScreen} from "../welcome-screen/welcome-screen";
 
 // Component App
 export const App = () => {
-  return <WelcomeScreen />;
+  return <WelcomeScreen onStartGameButtonClick={() => {}} />;
 };

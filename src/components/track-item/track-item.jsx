@@ -1,17 +1,14 @@
 // React
 import React from "react";
 
+// Components
+import {AudioPlayer} from "../audio-player/audio-player";
+
 // Component TrackItem
 export const TrackItem = () => {
   return (
     <div className="track">
-      <button
-        className="track__button track__button--play"
-        type="button"
-      ></button>
-      <div className="track__status">
-        <audio />
-      </div>
+      <AudioPlayer />
       <div className="game__answer">
         <input
           className="game__input visually-hidden"

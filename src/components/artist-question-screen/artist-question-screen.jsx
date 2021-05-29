@@ -3,6 +3,7 @@ import React from "react";
 
 // Components
 import {ArtistItem} from "../artist-item/artist-item";
+import {AudioPlayer} from "../audio-player/audio-player";
 
 // Component ArtistQuestionScreen
 export const ArtistQuestionScreen = () => {
@@ -11,13 +12,7 @@ export const ArtistQuestionScreen = () => {
       <h2 className="game__title">Кто исполняет эту песню?</h2>
       <div className="game__track">
         <div className="track">
-          <button
-            className="track__button track__button--play"
-            type="button"
-          ></button>
-          <div className="track__status">
-            <audio />
-          </div>
+          <AudioPlayer />
         </div>
       </div>
 

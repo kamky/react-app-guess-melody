@@ -1,25 +1,42 @@
 // React
 import React from "react";
+import PropTypes from "prop-types";
 
 // Component ArtistItem
-export const ArtistItem = () => {
+export const ArtistItem = (props) => {
+  const {index, answer, onUserAnswer} = props;
+
+  const handleInputChange = () => {
+    onUserAnswer(answer);
+  };
+
   return (
     <div className="artist">
       <input
         className="artist__input visually-hidden"
         type="radio"
         name="answer"
-        value="artist-1"
-        id="answer-1"
+        value={`answer-${index}`}
+        id={`answer-${index}`}
+        onChange={handleInputChange}
       />
-      <label className="artist__name" htmlFor="answer-1">
+      <label className="artist__name" htmlFor={`answer-${index}`}>
         <img
           className="artist__picture"
-          src="http://placehold.it/134x134"
-          alt="Пелагея"
+          src={answer.picture}
+          alt={answer.artist}
         />
-        Пелагея
+        {answer.artist}
       </label>
     </div>
   );
+};
+
+ArtistItem.propTypes = {
+  index: PropTypes.number.isRequired,
+  onUserAnswer: PropTypes.func.isRequired,
+  answer: PropTypes.shape({
+    artist: PropTypes.string.isRequired,
+    picture: PropTypes.string.isRequired,
+  }).isRequired,
 };

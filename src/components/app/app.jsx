@@ -1,5 +1,5 @@
 // React
-import React from "react";
+import React, {useState} from "react";
 
 // Router
 import {Switch, Route} from "react-router-dom";
@@ -16,13 +16,19 @@ import {FailTriesScreen} from "../fail-tries-screen/fail-tries-screen";
 
 // Component App
 export const App = () => {
+  const [step, setStep] = useState(-1);
+
+  const handleIncrementStep = () => {
+    setStep(step + 1);
+  };
+
   return (
     <Switch>
       <Route path={routes.ROOT} exact>
-        <WelcomeScreen onStartGameButtonClick={() => {}} />;
+        <WelcomeScreen onStartGameButtonClick={handleIncrementStep} />;
       </Route>
       <Route path={routes.GAME} exact>
-        <GameScreen />
+        <GameScreen step={step} onIncrementStep={handleIncrementStep} />
       </Route>
       <Route path={routes.LOGIN} exact>
         <LoginScreen />

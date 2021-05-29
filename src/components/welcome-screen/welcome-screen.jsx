@@ -2,6 +2,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+// Router
+import {useHistory} from "react-router";
+import routes from "../../routes";
+
 // Game settings
 import {gameSettings} from "../../consts";
 const {GAME_TIME, MAX_MISTAKES} = gameSettings;
@@ -10,8 +14,11 @@ const {GAME_TIME, MAX_MISTAKES} = gameSettings;
 export const WelcomeScreen = (props) => {
   const {onStartGameButtonClick} = props;
 
+  const history = useHistory();
+
   const handleButtonClick = (evt) => {
     evt.preventDefault();
+    history.push(routes.GAME);
     onStartGameButtonClick();
   };
 

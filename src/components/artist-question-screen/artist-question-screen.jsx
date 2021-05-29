@@ -1,12 +1,23 @@
 // React
 import React from "react";
 
+// Prop Types
+import PropTypes from "prop-types";
+import {ArtistQuestionTypes} from "./artist-question-screen.prop";
+
 // Components
 import {ArtistItem} from "../artist-item/artist-item";
 import {AudioPlayer} from "../audio-player/audio-player";
 
 // Component ArtistQuestionScreen
-export const ArtistQuestionScreen = () => {
+export const ArtistQuestionScreen = (props) => {
+  const {question, onUserAnswer} = props;
+  const {answers} = question;
+
+  const handleUserAnswer = (answer) => {
+    onUserAnswer(answer, question);
+  };
+
   return (
     <section className="game__screen">
       <h2 className="game__title">Кто исполняет эту песню?</h2>
@@ -17,10 +28,20 @@ export const ArtistQuestionScreen = () => {
       </div>
 
       <form className="game__artist">
-        <ArtistItem />
-        <ArtistItem />
-        <ArtistItem />
+        {answers.map((answer, idx) => (
+          <ArtistItem
+            key={`${idx}-${answer.artist}`}
+            index={idx}
+            answer={answer}
+            onUserAnswer={handleUserAnswer}
+          />
+        ))}
       </form>
     </section>
   );
+};
+
+ArtistQuestionScreen.propTypes = {
+  question: ArtistQuestionTypes,
+  onUserAnswer: PropTypes.func.isRequired,
 };

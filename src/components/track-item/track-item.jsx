@@ -2,12 +2,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-// Components
-import {AudioPlayer} from "../audio-player/audio-player";
-
 // Component TrackItem
 export const TrackItem = (props) => {
-  const {index, userAnswer, onInputChange} = props;
+  const {index, userAnswer, onInputChange, renderAudioPlayer, answer} = props;
 
   const handleChange = (evt) => {
     const value = evt.target.checked;
@@ -16,7 +13,7 @@ export const TrackItem = (props) => {
 
   return (
     <div className="track">
-      <AudioPlayer />
+      {renderAudioPlayer(answer.src, index)}
       <div className="game__answer">
         <input
           className="game__input visually-hidden"
@@ -37,6 +34,11 @@ export const TrackItem = (props) => {
 
 TrackItem.propTypes = {
   index: PropTypes.number.isRequired,
+  answer: PropTypes.shape({
+    src: PropTypes.string.isRequired,
+    genre: PropTypes.string.isRequired,
+  }).isRequired,
   userAnswer: PropTypes.bool.isRequired,
   onInputChange: PropTypes.func.isRequired,
+  renderAudioPlayer: PropTypes.func.isRequired,
 };

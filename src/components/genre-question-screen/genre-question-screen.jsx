@@ -13,7 +13,7 @@ import {TrackItem} from "../track-item/track-item";
 
 // Component GenreQuestionScreen
 export const GenreQuestionScreen = (props) => {
-  const {question, onUserAnswer} = props;
+  const {question, onUserAnswer, renderAudioPlayer} = props;
   const {genre, answers} = question;
 
   const [userAnswers, handleUserAnswersChange] = useUserAnswer(answers.length);
@@ -31,8 +31,10 @@ export const GenreQuestionScreen = (props) => {
           <TrackItem
             key={`${idx}-${answer.src}`}
             index={idx}
+            answer={answer}
             userAnswer={userAnswers[idx]}
             onInputChange={handleUserAnswersChange}
+            renderAudioPlayer={renderAudioPlayer}
           />
         ))}
         <button className="game__submit button" type="submit">
@@ -46,4 +48,5 @@ export const GenreQuestionScreen = (props) => {
 GenreQuestionScreen.propTypes = {
   question: GenreQuestionTypes,
   onUserAnswer: PropTypes.func.isRequired,
+  renderAudioPlayer: PropTypes.func.isRequired,
 };

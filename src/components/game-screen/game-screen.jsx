@@ -17,6 +17,13 @@ import {GameHeader} from "../game-header/game-header";
 import {ArtistQuestionScreen} from "../artist-question-screen/artist-question-screen";
 import {GenreQuestionScreen} from "../genre-question-screen/genre-question-screen";
 
+// HOCs
+import {withActivePlayer} from "../../hocs/with-active-player/with-active-player";
+
+// Wrapped components
+const ArtistQuestionScreenWrapped = withActivePlayer(ArtistQuestionScreen);
+const GenreQuestionScreenWrapped = withActivePlayer(GenreQuestionScreen);
+
 // Component GameScreen
 export const GameScreen = (props) => {
   const {step, onIncrementStep} = props;
@@ -42,7 +49,7 @@ export const GameScreen = (props) => {
   switch (type) {
     case gameTypes.ARTIST:
       screen = (
-        <ArtistQuestionScreen
+        <ArtistQuestionScreenWrapped
           question={question}
           onUserAnswer={handleUserAnswer}
         />
@@ -50,7 +57,7 @@ export const GameScreen = (props) => {
       break;
     case gameTypes.GENRE:
       screen = (
-        <GenreQuestionScreen
+        <GenreQuestionScreenWrapped
           question={question}
           onUserAnswer={handleUserAnswer}
         />

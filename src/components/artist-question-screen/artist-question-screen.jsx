@@ -7,12 +7,11 @@ import {ArtistQuestionTypes} from "./artist-question-screen.prop";
 
 // Components
 import {ArtistItem} from "../artist-item/artist-item";
-import {AudioPlayer} from "../audio-player/audio-player";
 
 // Component ArtistQuestionScreen
 export const ArtistQuestionScreen = (props) => {
-  const {question, onUserAnswer} = props;
-  const {answers} = question;
+  const {question, onUserAnswer, renderAudioPlayer} = props;
+  const {answers, song} = question;
 
   const handleUserAnswer = (answer) => {
     onUserAnswer(answer, question);
@@ -23,7 +22,7 @@ export const ArtistQuestionScreen = (props) => {
       <h2 className="game__title">Кто исполняет эту песню?</h2>
       <div className="game__track">
         <div className="track">
-          <AudioPlayer />
+          {renderAudioPlayer(song.src, 0)}
         </div>
       </div>
 
@@ -44,4 +43,5 @@ export const ArtistQuestionScreen = (props) => {
 ArtistQuestionScreen.propTypes = {
   question: ArtistQuestionTypes,
   onUserAnswer: PropTypes.func.isRequired,
+  renderAudioPlayer: PropTypes.func.isRequired,
 };

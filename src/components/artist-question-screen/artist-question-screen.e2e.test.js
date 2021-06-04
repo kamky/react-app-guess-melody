@@ -41,7 +41,12 @@ const questionMock = {
 describe(`e2e test for component <ArtistQuestionScreen />`, () => {
   const userAnswerMock = jest.fn();
   const question = questionMock;
-  const defaultProps = {question, onUserAnswer: userAnswerMock};
+  const defaultProps = {
+    question,
+    onUserAnswer: userAnswerMock,
+    renderAudioPlayer: jest.fn(),
+  };
+
   const wrapper = mount(<ArtistQuestionScreen {...defaultProps} />);
 
   test(`should pass the correct data format when the user responds`, () => {

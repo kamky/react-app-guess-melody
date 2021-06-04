@@ -60,12 +60,30 @@ describe(`Snapshot test for component <GameScreen />`, () => {
   const defaultProps = {onIncrementStep: jest.fn()};
 
   test(`should render component <ArtistQuestionScreen />`, () => {
-    const wrapper = renderer.create(<GameScreen {...defaultProps} step={0} />);
+    const wrapper = renderer.create(<GameScreen {...defaultProps} step={0} />, {
+      createNodeMock: (element) => {
+        if (element.type === `audio`) {
+          return {
+            play: () => {},
+          };
+        }
+        return null;
+      },
+    });
     expect(wrapper).toMatchSnapshot();
   });
 
   test(`should render component <GenreQuestionScreen />`, () => {
-    const wrapper = renderer.create(<GameScreen {...defaultProps} step={1} />);
+    const wrapper = renderer.create(<GameScreen {...defaultProps} step={0} />, {
+      createNodeMock: (element) => {
+        if (element.type === `audio`) {
+          return {
+            play: () => {},
+          };
+        }
+        return null;
+      },
+    });
     expect(wrapper).toMatchSnapshot();
   });
 });

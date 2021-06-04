@@ -90,13 +90,17 @@ exports[`Snapshot test for component <GameScreen /> should render component <Art
         className="track"
       >
         <button
-          className="track__button track__button--play"
+          className="track__button track__button--pause"
+          disabled={true}
+          onClick={[Function]}
           type="button"
         />
         <div
           className="track__status"
         >
-          <audio />
+          <audio
+            src="src-1"
+          />
         </div>
       </div>
     </div>
@@ -179,7 +183,7 @@ exports[`Snapshot test for component <GameScreen /> should render component <Art
 
 exports[`Snapshot test for component <GameScreen /> should render component <GenreQuestionScreen /> 1`] = `
 <section
-  className="game game--genre"
+  className="game game--artist"
 >
   <header
     className="game__header"
@@ -258,148 +262,101 @@ exports[`Snapshot test for component <GameScreen /> should render component <Gen
     <h2
       className="game__title"
     >
-      Выберите 
-      reggae
-       треки
+      Кто исполняет эту песню?
     </h2>
-    <form
-      className="game__tracks"
-      onSubmit={[Function]}
+    <div
+      className="game__track"
     >
       <div
         className="track"
       >
         <button
-          className="track__button track__button--play"
+          className="track__button track__button--pause"
+          disabled={true}
+          onClick={[Function]}
           type="button"
         />
         <div
           className="track__status"
         >
-          <audio />
-        </div>
-        <div
-          className="game__answer"
-        >
-          <input
-            checked={false}
-            className="game__input visually-hidden"
-            id="answer-0"
-            name="answer"
-            onChange={[Function]}
-            type="checkbox"
-            value="answer-0"
+          <audio
+            src="src-1"
           />
-          <label
-            className="game__check"
-            htmlFor="answer-0"
-          >
-            Отметить
-          </label>
         </div>
+      </div>
+    </div>
+    <form
+      className="game__artist"
+    >
+      <div
+        className="artist"
+      >
+        <input
+          className="artist__input visually-hidden"
+          id="answer-0"
+          name="answer"
+          onChange={[Function]}
+          type="radio"
+          value="answer-0"
+        />
+        <label
+          className="artist__name"
+          htmlFor="answer-0"
+        >
+          <img
+            alt="artist-1"
+            className="artist__picture"
+            src="picture-1"
+          />
+          artist-1
+        </label>
       </div>
       <div
-        className="track"
+        className="artist"
       >
-        <button
-          className="track__button track__button--play"
-          type="button"
+        <input
+          className="artist__input visually-hidden"
+          id="answer-1"
+          name="answer"
+          onChange={[Function]}
+          type="radio"
+          value="answer-1"
         />
-        <div
-          className="track__status"
+        <label
+          className="artist__name"
+          htmlFor="answer-1"
         >
-          <audio />
-        </div>
-        <div
-          className="game__answer"
-        >
-          <input
-            checked={false}
-            className="game__input visually-hidden"
-            id="answer-1"
-            name="answer"
-            onChange={[Function]}
-            type="checkbox"
-            value="answer-1"
+          <img
+            alt="artist-2"
+            className="artist__picture"
+            src="picture-2"
           />
-          <label
-            className="game__check"
-            htmlFor="answer-1"
-          >
-            Отметить
-          </label>
-        </div>
+          artist-2
+        </label>
       </div>
       <div
-        className="track"
+        className="artist"
       >
-        <button
-          className="track__button track__button--play"
-          type="button"
+        <input
+          className="artist__input visually-hidden"
+          id="answer-2"
+          name="answer"
+          onChange={[Function]}
+          type="radio"
+          value="answer-2"
         />
-        <div
-          className="track__status"
+        <label
+          className="artist__name"
+          htmlFor="answer-2"
         >
-          <audio />
-        </div>
-        <div
-          className="game__answer"
-        >
-          <input
-            checked={false}
-            className="game__input visually-hidden"
-            id="answer-2"
-            name="answer"
-            onChange={[Function]}
-            type="checkbox"
-            value="answer-2"
+          <img
+            alt="artist-3"
+            className="artist__picture"
+            src="picture-3"
           />
-          <label
-            className="game__check"
-            htmlFor="answer-2"
-          >
-            Отметить
-          </label>
-        </div>
+          artist-3
+        </label>
       </div>
-      <div
-        className="track"
-      >
-        <button
-          className="track__button track__button--play"
-          type="button"
-        />
-        <div
-          className="track__status"
-        >
-          <audio />
-        </div>
-        <div
-          className="game__answer"
-        >
-          <input
-            checked={false}
-            className="game__input visually-hidden"
-            id="answer-3"
-            name="answer"
-            onChange={[Function]}
-            type="checkbox"
-            value="answer-3"
-          />
-          <label
-            className="game__check"
-            htmlFor="answer-3"
-          >
-            Отметить
-          </label>
-        </div>
-      </div>
-      <button
-        className="game__submit button"
-        type="submit"
-      >
-        Ответить
-      </button>
     </form>
   </section>
 </section>

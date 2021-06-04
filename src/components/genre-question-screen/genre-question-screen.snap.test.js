@@ -31,7 +31,12 @@ const questionMock = {
 
 describe(`Snapshot test for component <GenreQuestionScreen />`, () => {
   const question = questionMock;
-  const defaultProps = {question, onUserAnswer: jest.fn()};
+  const defaultProps = {
+    question,
+    onUserAnswer: jest.fn(),
+    renderAudioPlayer: jest.fn(),
+  };
+
   const wrapper = renderer.create(<GenreQuestionScreen {...defaultProps} />);
   test(`should component <GenreQuestionScreen /> renders correctly`, () => {
     expect(wrapper).toMatchSnapshot();

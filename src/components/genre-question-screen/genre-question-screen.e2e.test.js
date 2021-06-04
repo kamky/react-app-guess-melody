@@ -45,7 +45,12 @@ describe(`e2e test for component <GenreQuestionScreen />`, () => {
 
   // initial component
   const question = questionMock;
-  const defaultProps = {question, onUserAnswer: userAnswerMock};
+  const defaultProps = {
+    question,
+    onUserAnswer: userAnswerMock,
+    renderAudioPlayer: jest.fn(),
+  };
+
   const wrapper = mount(<GenreQuestionScreen {...defaultProps} />);
 
   afterEach(() => {
